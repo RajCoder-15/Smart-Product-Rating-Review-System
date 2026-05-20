@@ -28,13 +28,6 @@ function Navbar() {
             Add Product
           </Link>
 
-          <Link
-            to="/product-details"
-            className="hover:text-cyan-400 transition"
-          >
-            Details
-          </Link>
-
         </div>
 
       </div>
