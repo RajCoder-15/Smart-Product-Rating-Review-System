@@ -1,99 +1,106 @@
 import { useState } from "react";
 
 function AddProduct() {
-
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState("");
-const handleSubmit = async (e) => {
 
-  e.preventDefault();
-  console.log(name, description, rating);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/products`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            description,
+            rating,
+          }),
+        }
+      );
 
-    const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/api/products`,
-      {
-        method: "POST",
+      const data = await response.json();
 
-        headers: {
-          "Content-Type": "application/json",
-        },
+      console.log(data);
 
-        body: JSON.stringify({
-          name,
-          description,
-          rating,
-        }),
-      }
-    );
+      alert("Product Added Successfully");
 
-    const data = await response.json();
-
-    console.log(data);
-
-    alert("Product Added");
-
-    setName("");
-    setDescription("");
-    setRating("");
-
-  } catch (error) {
-
-    console.log(error);
-
-    alert("Error adding product");
-
-  }
-
-};
+      setName("");
+      setDescription("");
+      setRating("");
+    } catch (error) {
+      console.log(error);
+      alert("Error adding product");
+    }
+  };
 
   return (
-    <div className="p-10 bg-white min-h-screen">
+    <div
+      style={{
+        minHeight: "100vh",
+        padding: "40px",
+        background: "#f4f4f4",
+      }}
+    >
+      <h1 style={{ fontSize: "40px", marginBottom: "20px" }}>
+        Add Product
+      </h1>
 
-      <div className="p-8">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Product Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "15px",
+            marginBottom: "20px",
+          }}
+        />
 
-        <h1 className="text-3xl font-bold mb-6 text-gray-800">
+        <input
+          type="number"
+          placeholder="Rating"
+          value={rating}
+          onChange={(e) => setRating(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "15px",
+            marginBottom: "20px",
+          }}
+        />
+
+        <textarea
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "15px",
+            height: "150px",
+            marginBottom: "20px",
+          }}
+        />
+
+        <button
+          type="submit"
+          style={{
+            padding: "15px 30px",
+            background: "blue",
+            color: "white",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
           Add Product
-        </h1>
-
-        <form onSubmit={handleSubmit}>
-
-          <input
-            type="text"
-            placeholder="Product Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-
-          <input
-            type="number"
-            placeholder="Rating (1-5)"
-            value={rating}
-            onChange={(e) => setRating(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-
-          <textarea
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 mb-4 h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"
-           />
-
-          <button
-            type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition duration-300"
-          >
-            Add Product
-          </button>
-
-        </form>
-
-      </div>
-
+        </button>
+      </form>
     </div>
   );
 }
