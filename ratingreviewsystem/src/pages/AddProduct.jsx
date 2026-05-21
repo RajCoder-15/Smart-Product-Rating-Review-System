@@ -11,7 +11,8 @@ function AddProduct() {
     e.preventDefault();
 
     const response = await fetch(
-      "http://localhost:3000/api/products",
+      `${import.meta.env.VITE_API_URL}/api/products`,
+
       {
         method: "POST",
 
