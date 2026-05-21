@@ -8,6 +8,7 @@ function AddProduct() {
 const handleSubmit = async (e) => {
 
   e.preventDefault();
+  console.log(name, description, rating);
 
   try {
 
