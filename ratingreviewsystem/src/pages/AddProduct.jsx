@@ -50,9 +50,9 @@ const handleSubmit = async (e) => {
 };
 
   return (
-    <div className="max-w-3xl mx-auto px-5 py-10">
+    <div className="p-10 bg-white min-h-screen">
 
-      <div className="bg-white p-8 rounded-2xl shadow-lg">
+      <div className="p-8">
 
         <h1 className="text-3xl font-bold mb-6 text-gray-800">
           Add Product
