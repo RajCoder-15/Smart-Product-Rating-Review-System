@@ -42,9 +42,12 @@ function AddProduct() {
   return (
     <div
       style={{
-        minHeight: "100vh",
-        padding: "40px",
-        background: "#f4f4f4",
+            width: "100%",
+            padding: "15px",
+            marginBottom: "20px",
+            color: "black",
+            backgroundColor: "white",
+            border: "1px solid black"
       }}
     >
       <h1 style={{ fontSize: "40px", marginBottom: "20px" }}>
@@ -61,6 +64,9 @@ function AddProduct() {
             width: "100%",
             padding: "15px",
             marginBottom: "20px",
+            color: "black",
+            backgroundColor: "white",
+            border: "1px solid black"
           }}
         />
 
