@@ -5,14 +5,14 @@ function AddProduct() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState("");
+const handleSubmit = async (e) => {
 
-  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    e.preventDefault();
+  try {
 
     const response = await fetch(
       `${import.meta.env.VITE_API_URL}/api/products`,
-
       {
         method: "POST",
 
@@ -20,7 +20,7 @@ function AddProduct() {
           "Content-Type": "application/json",
         },
 
-       body: JSON.stringify({
+        body: JSON.stringify({
           name,
           description,
           rating,
@@ -28,15 +28,25 @@ function AddProduct() {
       }
     );
 
-    await response.json();
+    const data = await response.json();
+
+    console.log(data);
 
     alert("Product Added");
 
     setName("");
     setDescription("");
+    setRating("");
 
-    window.location.reload();
-  };
+  } catch (error) {
+
+    console.log(error);
+
+    alert("Error adding product");
+
+  }
+
+};
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-10">

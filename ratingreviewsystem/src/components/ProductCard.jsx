@@ -3,8 +3,8 @@ function ProductCard({ product }) {
   const handleDelete = async () => {
 
     await fetch(
-      `http://localhost:3000/api/products/${product._id}`,
-      {
+      `${import.meta.env.VITE_API_URL}/api/products`,
+     {
         method: "DELETE",
       }
     );
