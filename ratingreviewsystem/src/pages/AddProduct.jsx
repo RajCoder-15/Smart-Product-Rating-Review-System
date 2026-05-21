@@ -73,6 +73,9 @@ function AddProduct() {
             width: "100%",
             padding: "15px",
             marginBottom: "20px",
+            color: "black",
+            backgroundColor: "white",
+            border: "1px solid black"
           }}
         />
 
@@ -80,11 +83,13 @@ function AddProduct() {
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          style={{
+         style={{
             width: "100%",
             padding: "15px",
-            height: "150px",
             marginBottom: "20px",
+            color: "black",
+            backgroundColor: "white",
+            border: "1px solid black"
           }}
         />
 
