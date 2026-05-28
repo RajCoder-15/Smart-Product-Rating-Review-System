@@ -5,11 +5,17 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const productRoutes = require("./routes/productRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+
+app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
+
 
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected"))
@@ -18,8 +24,6 @@ mongoose.connect(process.env.MONGO_URI)
 app.get("/", (req, res) => {
   res.send("Backend Running");
 });
-
-app.use("/api/products", productRoutes);
 
 const PORT = process.env.PORT || 3000;
 

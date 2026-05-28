@@ -2,17 +2,29 @@ function ProductCard({ product }) {
 
   const handleDelete = async () => {
 
-    await fetch(
-      `${import.meta.env.VITE_API_URL}/api/products`,
-     {
-        method: "DELETE",
-      }
-    );
+    try {
 
-    window.location.reload();
+      await fetch(
+        `${import.meta.env.VITE_API_URL}/api/products/${product._id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      alert("Product Deleted");
+
+      window.location.reload();
+
+    } catch (error) {
+
+      console.log(error);
+
+    }
   };
 
+
   return (
+
     <div className="group relative overflow-hidden bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 hover:scale-105 transition duration-500 shadow-2xl hover:shadow-cyan-500/20">
 
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
