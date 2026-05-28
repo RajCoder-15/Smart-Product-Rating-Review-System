@@ -1,78 +1,84 @@
 # 🚀 Smart Product Rating & Review System
 
-A modern full-stack MERN application where users can add, search, filter, sort, and manage products dynamically with ratings and reviews.
-
-Built using React, Tailwind CSS, Node.js, Express.js, and MongoDB.
+A modern full-stack MERN application where users can register, login, add products, rate products, review products, filter products, and manage them with a beautiful futuristic UI.
 
 ---
 
-# 📌 Features
+# 🌟 Features
 
-✅ Add Products  
-✅ Delete Products  
-✅ Product Rating System  
-✅ Search Filter  
-✅ Rating Filter  
-✅ Sort by Rating  
-✅ Responsive UI  
-✅ Modern Tailwind CSS Design  
-✅ REST API Integration  
-✅ MongoDB Database  
-✅ MERN Stack Architecture  
+✅ User Authentication (JWT)
+✅ Login & Register System
+✅ Protected Routes
+✅ Add Products
+✅ Delete Products
+✅ Product Ratings
+✅ Product Reviews
+✅ Search & Filter Products
+✅ Responsive Modern UI
+✅ Tailwind CSS Design
+✅ MongoDB Database
+✅ REST API Integration
+✅ Deployment Ready Architecture
 
 ---
 
 # 🛠 Tech Stack
 
 ## Frontend
-- React.js
-- Tailwind CSS
-- React Router DOM
+
+* React.js
+* Tailwind CSS
+* React Router DOM
+* Vite
 
 ## Backend
-- Node.js
-- Express.js
 
-## Database
-- MongoDB
-- Mongoose
-
-## Tools
-- VS Code
-- Postman
-- Git & GitHub
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT Authentication
+* bcryptjs
 
 ---
 
 # 📂 Project Structure
 
-```text
-Smart Product Rating-Review System
+```bash
+Smart Product Rating-Review System/
 │
-├── backend
-│   ├── controllers
-│   ├── models
-│   ├── routes
-│   ├── config
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── config/
 │   ├── .env
 │   └── server.js
 │
-├── ratingreviewsystem
-│   ├── src
-│   │   ├── components
-│   │   ├── pages
-│   │   ├── services
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│
-└── README.md
+├── ratingreviewsystem/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── App.jsx
+│   ├── .env
+│   └── package.json
 ```
 
 ---
 
-# ⚡ Installation & Setup
+# 🔐 Authentication Flow
 
-## 1️⃣ Clone Repository
+* User registers account
+* User logs in
+* JWT token stored in localStorage
+* Protected routes prevent unauthorized access
+* Logout removes token securely
+
+---
+
+# ⚙️ Installation & Setup
+
+## Clone Repository
 
 ```bash
 git clone https://github.com/RajCoder-15/Smart-Product-Rating-Review-System.git
@@ -80,127 +86,72 @@ git clone https://github.com/RajCoder-15/Smart-Product-Rating-Review-System.git
 
 ---
 
-## 2️⃣ Backend Setup
+## Backend Setup
 
 ```bash
 cd backend
-
 npm install
-
 node server.js
 ```
 
-Backend runs on:
-
-```text
-http://localhost:3000
-```
-
 ---
 
-## 3️⃣ Frontend Setup
+## Frontend Setup
 
 ```bash
 cd ratingreviewsystem
-
 npm install
-
 npm run dev
 ```
 
-Frontend runs on:
+---
 
-```text
-http://localhost:5173
+# 🌍 Environment Variables
+
+## Backend `.env`
+
+```env
+MONGO_URI=your_mongodb_connection
+PORT=3000
+```
+
+## Frontend `.env`
+
+```env
+VITE_API_URL=http://localhost:3000
 ```
 
 ---
 
-# 🔥 API Endpoints
+# 🚀 Deployment
 
-## Get All Products
+## Frontend
 
-```http
-GET /api/products
-```
+* Vercel
 
-## Add Product
+## Backend
 
-```http
-POST /api/products
-```
+* Render
 
-## Delete Product
+## Database
 
-```http
-DELETE /api/products/:id
-```
+* MongoDB Atlas
 
 ---
 
-# 🗄 Database Schema
+# 📸 Future Improvements
 
-## Product Schema
-
-```js
-{
-  name: String,
-  description: String,
-  rating: Number,
-  reviews: Number
-}
-```
+* Product Images Upload
+* Wishlist Feature
+* Admin Dashboard
+* User Profile Page
+* Toast Notifications
+* Product Categories
+* Pagination
+* Cloudinary Integration
 
 ---
 
-# 🎨 UI Features
+# 👨‍💻 Developer
 
-- Futuristic Dark Theme
-- Glassmorphism Cards
-- Gradient Styling
-- Responsive Layout
-- Animated Hover Effects
-
----
-
-# 🧠 Concepts Used
-
-- MERN Stack
-- MVC Architecture
-- REST APIs
-- CRUD Operations
-- React Hooks
-- Tailwind CSS
-- MongoDB Integration
-- Dynamic Filtering & Sorting
-
----
-
-# 🚀 Future Improvements
-
-- User Authentication
-- JWT Security
-- Product Reviews
-- Wishlist System
-- Admin Dashboard
-- Product Images
-- Cloud Deployment
-- AI Recommendations
-
----
-
-# 👨‍💻 Author
-
-Raj
-
----
-
-# ⭐ GitHub Repository
-
-https://github.com/RajCoder-15/Smart-Product-Rating-Review-System
-
----
-
-# 📜 License
-
-This project is created for learning and educational purposes.
+Developed by Raj Kumar Singh 

@@ -1,3 +1,8 @@
+import {
+  useNavigate,
+  Link,
+} from "react-router-dom";
+
 import { useState } from "react";
 
 function Login() {
@@ -7,6 +12,9 @@ function Login() {
 
   const [password, setPassword] =
     useState("");
+
+  const navigate = useNavigate();
+  useState("");
 
 
   const handleLogin = async (e) => {
@@ -41,6 +49,7 @@ function Login() {
       );
 
       alert("Login Successful");
+      window.location.href = "/";
 
     } else {
 
@@ -67,7 +76,7 @@ function Login() {
         <input
           type="email"
           placeholder="Email"
-          className="w-full p-3 rounded-lg mb-4 text-black"
+          className="w-full p-3 rounded-lg mb-4 text-white"
           value={email}
           onChange={(e) =>
             setEmail(e.target.value)
@@ -77,7 +86,7 @@ function Login() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full p-3 rounded-lg mb-4 text-black"
+          className="w-full p-3 rounded-lg mb-4 text-white"
           value={password}
           onChange={(e) =>
             setPassword(e.target.value)
@@ -89,6 +98,19 @@ function Login() {
         >
           Login
         </button>
+
+        <p className="text-center mt-6 text-gray-300">
+
+          Don't have an account?
+
+          <a
+            href="/register"
+            className="text-cyan-400 ml-2 hover:underline"
+          >
+          Register
+         </a>
+
+        </p>
 
       </form>
 

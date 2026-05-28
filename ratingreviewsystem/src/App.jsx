@@ -1,44 +1,69 @@
+import {
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
+
 import AddProduct from "./pages/AddProduct";
-import ProductDetails from "./pages/ProductDetails";
+
 import Login from "./pages/Login";
+
 import Register from "./pages/Register";
 
-import { Routes, Route } from "react-router-dom";
 
 function App() {
+
+  const token =
+    localStorage.getItem("token");
+
 
   return (
 
     <div className="min-h-screen bg-black text-white">
 
-      <Navbar />
+      {token && <Navbar />}
 
       <Routes>
 
-        <Route path="/" element={<Home />} />
-
         <Route
-          path="/add-product"
-          element={<AddProduct />}
+          path="/login"
+          element={
+            token
+              ? <Navigate to="/" />
+              : <Login />
+          }
         />
-
-        <Route
-          path="/product-details"
-          element={<ProductDetails />}
-        />
-
-        <Route
-           path="/login"
-          element={<Login />}
-         />
 
         <Route
           path="/register"
-          element={<Register />} 
-        /> 
+          element={
+            token
+              ? <Navigate to="/" />
+              : <Register />
+          }
+        />
+
+        <Route
+          path="/"
+          element={
+            token
+              ? <Home />
+              : <Navigate to="/login" />
+          }
+        />
+
+        <Route
+          path="/add-product"
+          element={
+            token
+              ? <AddProduct />
+              : <Navigate to="/login" />
+          }
+        />
 
       </Routes>
 

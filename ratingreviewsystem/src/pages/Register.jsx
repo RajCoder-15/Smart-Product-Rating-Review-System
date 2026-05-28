@@ -57,7 +57,7 @@ function Register() {
         <input
           type="text"
           placeholder="Name"
-          className="w-full p-3 rounded-lg mb-4 text-black"
+          className="w-full p-3 rounded-lg mb-4 text-white"
           value={name}
           onChange={(e) =>
             setName(e.target.value)
@@ -67,7 +67,7 @@ function Register() {
         <input
           type="email"
           placeholder="Email"
-          className="w-full p-3 rounded-lg mb-4 text-black"
+          className="w-full p-3 rounded-lg mb-4 text-white"
           value={email}
           onChange={(e) =>
             setEmail(e.target.value)
@@ -77,7 +77,7 @@ function Register() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full p-3 rounded-lg mb-4 text-black"
+          className="w-full p-3 rounded-lg mb-4 text-white"
           value={password}
           onChange={(e) =>
             setPassword(e.target.value)
@@ -89,6 +89,19 @@ function Register() {
         >
           Register
         </button>
+
+        <p className="text-center mt-6 text-gray-300">
+
+        Already have an account?
+
+        <a
+           href="/login"
+           className="text-cyan-400 ml-2 hover:underline"
+        >
+         Login
+       </a>
+
+      </p>
 
       </form>
 

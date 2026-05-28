@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
 
+  const handleLogout = () => {
+
+  localStorage.removeItem("token");
+
+  window.location.href = "/login";
+
+};
+
   return (
 
     <nav className="sticky top-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10 px-8 py-5">
@@ -27,6 +35,13 @@ function Navbar() {
           >
             Add Product
           </Link>
+
+          <button
+             onClick={handleLogout}
+            className="hover:text-red-400 transition"
+          >
+          Logout
+          </button>
 
         </div>
 
